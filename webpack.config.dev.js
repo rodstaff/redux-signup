@@ -1,5 +1,5 @@
 import path from 'path';
-import webapck from 'webapck';
+import webpack from 'webpack';
 
 export default {
   devtools: 'eval-source-map',
