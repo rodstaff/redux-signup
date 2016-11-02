@@ -1,6 +1,7 @@
 import React from 'react';
 import timezones from '../../data/timezones';
 import map from 'lodash/map';
+import classnames from 'classnames';
 // import axios from 'axios';
 
 class SignupForm extends React.Component {
@@ -52,7 +53,7 @@ class SignupForm extends React.Component {
       <form onSubmit={this.onSubmit}>
         <h1>Join our community!</h1>
 
-        <div className="form-group">
+        <div className={classnames("form-group", {'has-error': errors.username} )}>
           <label className="control-label">Username</label>
           <input
             value={this.state.username}
@@ -64,7 +65,7 @@ class SignupForm extends React.Component {
           {errors.username && <span className="help-block">{errors.username}</span>}
         </div>
 
-        <div className="form-group">
+        <div className={classnames("form-group", {'has-error': errors.email} )}>
           <label className="control-label">email</label>
           <input
             value={this.state.email}
@@ -75,7 +76,7 @@ class SignupForm extends React.Component {
           />
         </div>
 
-        <div className="form-group">
+        <div className={classnames("form-group", {'has-error': errors.password} )}>
           <label className="control-label">Password</label>
           <input
             value={this.state.password}
@@ -86,7 +87,7 @@ class SignupForm extends React.Component {
           />
         </div>        
 
-        <div className="form-group">
+        <div className={classnames("form-group", {'has-error': errors.passwordConfirmation} )}>
           <label className="control-label">Password Confirmation</label>
           <input
             value={this.state.passwordConfirmation}
@@ -97,7 +98,7 @@ class SignupForm extends React.Component {
           />
         </div>
 
-        <div className="form-group">
+        <div className={classnames("form-group", {'has-error': errors.timezone} )}>
           <label className="control-label">Timezones</label>
           <select
             value={this.state.timezone}
