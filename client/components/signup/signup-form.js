@@ -14,7 +14,8 @@ class SignupForm extends React.Component {
       email: '',
       password: '',
       passwordConfirmation: '',
-      timezone: ''
+      timezone: '',
+      errors: {}
     }
 
     this.onChange = this.onChange.bind(this);
