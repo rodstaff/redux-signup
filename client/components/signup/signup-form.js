@@ -16,7 +16,8 @@ class SignupForm extends React.Component {
       password: '',
       passwordConfirmation: '',
       timezone: '',
-      errors: {}
+      errors: {},
+      isLoading: false
     }
 
     this.onChange = this.onChange.bind(this);
@@ -28,13 +29,13 @@ class SignupForm extends React.Component {
   }
 
   onSubmit(e) {
-    this.setState({errors: {}});
+    this.setState({errors: {}, isLoading: true});
   	e.preventDefault();
   	this.props.userSignupRequest(this.state).then(
       () => {})
       .catch(error => {
         console.log("error.message: " + error.message);
-        this.setState({errors: error.response.data})
+        this.setState({errors: error.response.data, isLoading: false})
       });
     // this.props.userSignupRequest(this.state).then (
     //   () => {},
@@ -113,7 +114,7 @@ class SignupForm extends React.Component {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary btn-lg">
+          <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
             Sign up
           </button>
         </div>
