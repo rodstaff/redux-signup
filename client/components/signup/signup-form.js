@@ -1,6 +1,7 @@
 import React from 'react';
 import timezones from '../../data/timezones';
 import map from 'lodash/map';
+import axios from 'axios';
 
 class SignupForm extends React.Component {
 
@@ -26,6 +27,7 @@ class SignupForm extends React.Component {
 
   onSubmit(e) {
   	e.preventDefault();
+  	axios.post('/api/users', {user: this.state});
   	console.log(this.state);
   }
 
@@ -91,7 +93,7 @@ class SignupForm extends React.Component {
             name="timezone"
             className="form-control"
           >
-            <option value="" disabled>Choose your timezone</option>
+            <option value="" disabled>Choose your timezone</option>   
             {options}
           </select>
         </div>
