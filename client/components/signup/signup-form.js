@@ -27,14 +27,24 @@ class SignupForm extends React.Component {
   }
 
   onSubmit(e) {
+    this.setState({errors: {}});
   	e.preventDefault();
-  	this.props.userSignupRequest(this.state);
+  	this.props.userSignupRequest(this.state).then(
+      () => {})
+      .catch(error => {
+        console.log("error.message: " + error.message);
+        this.setState({errors: error.response.data})
+      });
+    // this.props.userSignupRequest(this.state).then (
+    //   () => {},
+    //   ({data}) => this.setState({errors: data})
+    // ); 
   	// axios.post('/api/users', {user: this.state});
   	// console.log(this.state);
   }
 
   render() {
-
+    const {errors} = this.state;
   	const options = map(timezones, (val, key) =>
       <option key={key} value={val}>{key}:  {val}</option>
   	);
@@ -51,6 +61,7 @@ class SignupForm extends React.Component {
             name="username"
             className="form-control"
           />
+          {errors.username && <span className="help-block">{errors.username}</span>}
         </div>
 
         <div className="form-group">
