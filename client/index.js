@@ -1,9 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import {createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/app';
 import Greetings from './components/greetings';
@@ -17,10 +17,10 @@ const store = createStore(
 render(
   <Provider store={store}>
     <Router history={browserHistory} >
-	  <Route path="/" component={App}>
-	    <IndexRoute component={Greetings} />
-	    <Route path="signup" component={SignupPage} />
-	  </Route>
+	    <Route path="/" component={App}>
+	      <IndexRoute component={Greetings} />
+	      <Route path="signup" component={SignupPage} />
+	    </Route>
     </Router>
   </Provider>, 
   document.getElementById('root')

@@ -1,11 +1,11 @@
 {
-  "name": "reduxsignup",
+  "name": "redux-signup",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client/index.js",
   "scripts": {
     "wbp": "webpack",
-    "start": "nodemon --watch server --exec babel-node -- server/index.js"
+    "dev": "nodemon --watch server --exec babel-node -- server/index.js"
   },
   "keywords": [],
   "author": "",

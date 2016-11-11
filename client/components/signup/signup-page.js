@@ -1,12 +1,12 @@
 import React from 'react';
 import SignupForm from './signup-form';
-import {connect} from 'react-redux';
-import {userSignupRequest} from '../../actions/signup-actions';
+import { connect } from 'react-redux';
+import { userSignupRequest } from '../../actions/signup-actions';
 
 class SignupPage extends React.Component {
   render() {
 
-  	const {userSignupRequest} = this.props;
+  	const { userSignupRequest } = this.props;
 
     return (
       <div className="row">
