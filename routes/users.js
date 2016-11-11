@@ -1,6 +1,6 @@
-import express from 'express';
-import Validator from 'validator';
-import isEmpty from 'lodash/isEmpty';
+import express from 'express'
+import Validator from 'validator'
+import isEmpty from 'lodash/isEmpty'
 
 let router = express.Router();
 

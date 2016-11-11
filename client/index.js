@@ -1,20 +1,20 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
 
-import App from './components/app';
-import Greetings from './components/greetings';
-import SignupPage from './components/signup/signup-page';
+import App from './components/app'
+import Greetings from './components/greetings'
+import SignupPage from './components/signup/signup-page'
 
 const store = createStore(
   (state = {}) => state,
   applyMiddleware(thunk)
 );
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} >
 	    <Route path="/" component={App}>

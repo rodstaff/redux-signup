@@ -1,15 +1,12 @@
-import React from 'react';
-import timezones from '../../data/timezones';
-import map from 'lodash/map';
-import classnames from 'classnames';
+import React from 'react'
+import timezones from '../../data/timezones'
+import map from 'lodash/map'
+import classnames from 'classnames'
 // import axios from 'axios';
 
 class SignupForm extends React.Component {
-
   constructor(props) { 
-
     super(props);
-
     this.state = {
       username: '',
       email: '',
@@ -19,15 +16,12 @@ class SignupForm extends React.Component {
       errors: {},
       isLoading: false
     }
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
   onSubmit(e) {
     this.setState({errors: {}, isLoading: true});
   	e.preventDefault();
@@ -44,7 +38,6 @@ class SignupForm extends React.Component {
   	// axios.post('/api/users', {user: this.state});
   	// console.log(this.state);
   }
-
   render() {
     const {errors} = this.state;
   	const options = map(timezones, (val, key) =>
@@ -122,7 +115,6 @@ class SignupForm extends React.Component {
     );
   }
 }
-
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
 }
